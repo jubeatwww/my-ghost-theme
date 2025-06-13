@@ -8,11 +8,11 @@
     --mid-gray-color: #d9d9d9;
     --dark-gray-color: #1a1a1a;
     --black-color: #000;
-    --dark-mode-bg-color: #282c35;
+    --dark-mode-bg-color: #373C38;
     --dark-mode-darker-bg-color: #21252c;
-    --dark-mode-primary-text-color: #ccc;
+    --dark-mode-primary-text-color: #E8E5DA;
     --dark-mode-secondary-text-color: #999;
-    --dark-mode-border-color: #495061;
+    --dark-mode-border-color: #4C4F4D;
     --animation-base: ease-in-out;
     --shadow-base: 0 0 5px rgba(0, 0, 0, 0.2);
     --font-sans: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
@@ -20,4 +20,15 @@
     --font-mono: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
     --content-font-size: 1.7rem;
     --header-spacing: 60px;
+
+    --color-0: #E397B2; /* 撫子 (Nadeshiko Pink) */
+    --color-1: #276AB3; /* 瑠璃（Lapis Blue） */
+    --color-2: #007D34; /* 常磐色（Evergreen Green） */
+    --color-3: #D17D47; /* 肉桂色（Cinnamon） */
+    --color-4: #768692; /* 紺鼠（Slate Blue-Gray） */
+    --color-5: #6E4B7F; /* 韃靼紫（Dattan Purple） */
+    --color-6: #67B7C9; /* 浅葱色（Light Teal） */
+    --color-7: #F7E018; /* 菜の花色（Rapeseed Yellow） */
+    --color-8: #884898; /* 江戸紫（Edo Purple） */
+    --color-9: #789262; /* 灰緑 (Hai Midori / Ash Green) */
 }

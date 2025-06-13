@@ -21,7 +21,7 @@
 .dark-mode .kg-bookmark-title,
 .dark-mode .kg-bookmark-author,
 .dark-mode .kg-bookmark-publisher {
-    color: var(--white-color);
+    color: var(--dark-mode-primary-text-color);
 }
 
 .dark-mode .gh-head-logo img:first-child:not(:only-child) {
@@ -68,7 +68,10 @@
     background-color: var(--dark-mode-darker-bg-color);
 }
 
-.dark-mode .gh-head,
+.dark-mode .gh-head {
+    background-color: #4C4F4D !important;
+}
+
 .dark-mode .off-canvas {
     background-color: var(--dark-mode-bg-color) !important;
 }
@@ -102,4 +105,12 @@
     background-color: var(--dark-mode-bg-color) !important;
     color: var(--white-color) !important;
     opacity: 1;
+}
+
+.dark-mode nav {
+    border-color: var(--dark-mode-border-color);
+}
+
+nav ul li span {
+    background-color: var(--dark-mode-border-color);
 }

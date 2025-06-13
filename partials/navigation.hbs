@@ -1,0 +1,18 @@
+<ul class="nav">
+  <!-- Loop through the navigation items -->
+  {{#foreach navigation}}
+    <li class="nav-{{slug}}{{#if current}} nav-current{{/if}}">
+      <span class="nav-itme-border"></span>
+      <a href="{{url absolute="true"}}">
+        <div class="nav-icon">
+          <svg class="nav-icon-svg">
+            <use xlink:href='{{asset "images/menu-icons.svg"}}#icon-{{slug}}'></use>
+            {{!-- Ensure the icon is defined in your SVG sprite --}}
+          </svg>
+        </div>
+        <p>{{label}}</p>
+      </a>
+    </li>
+  {{/foreach}}
+  <!-- End the loop -->
+</ul>

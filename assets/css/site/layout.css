@@ -1,3 +1,19 @@
+* {
+    border: 0 solid #e5e7eb;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    color: var(--primary-text-color);
+    font-family: Noto Sans JP, "sans-serif";
+    letter-spacing: .02em;
+    line-height: 150%;
+    min-height: 100svh;
+}
+
 .site {
     display: flex;
     flex-direction: column;
