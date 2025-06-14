@@ -12,12 +12,22 @@ body {
     letter-spacing: .02em;
     line-height: 150%;
     min-height: 100svh;
+    padding-top: 153px;
 }
 
 .site {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+.container {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    z-index: 100;
+    top: 0;
+    left: 0;
 }
 
 .site-content {

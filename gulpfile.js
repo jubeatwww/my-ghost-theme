@@ -15,6 +15,8 @@ const zip = require('gulp-zip');
 const easyimport = require('postcss-easy-import');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
+const postcssFor = require('postcss-for');
+const nested = require('postcss-nested');
 
 function serve(done) {
     livereload.listen();
@@ -42,6 +44,8 @@ function css(done) {
         src('assets/css/screen.css', {sourcemaps: true}),
         postcss([
             easyimport,
+            postcssFor,
+            nested,
             autoprefixer(),
             cssnano()
         ]),

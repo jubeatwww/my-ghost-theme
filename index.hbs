@@ -1,15 +1,17 @@
 {{!< default}}
 
-<div class="content-area">
-<main class="site-main">
+{{#get "posts" include="authors,tags" filter="featured:false" limit=@config.posts_per_page}}
+  <div class="content-area">
+    <main class="site-main">
 
-    <div class="post-feed">
+      <div class="post-feed">
         {{#foreach posts}}
-            {{> "loop"}}
+          {{> "loop"}}
         {{/foreach}}
-    </div>
+      </div>
 
-    {{pagination}}
+      {{pagination}}
 
-</main>
-</div>
+    </main>
+  </div>
+{{/get}}

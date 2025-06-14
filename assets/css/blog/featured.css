@@ -6,22 +6,27 @@
     font-size: calc(100vw / 144);
     scroll-behavior: smooth;
     background-color: #373C38;
-}
 
-.featured-posts .splide__track {
-    @media screen and (min-width: 769px) {
-        padding-top: 6.5em;
+    @media (max-width: 767px) {
+        margin-top: 24px;
+        margin-bottom: 0;
     }
-}
 
-.featured-posts article {
-    display: flex;
-    flex-direction: column;
-    pointer-events: none;
-    transition: transform 1400ms calc(60ms * var(--index, 0)) cubic-bezier(0.19, 1, 0.22, 1);
+    .splide__track {
+        @media screen and (min-width: 769px) {
+            padding-top: 6.5em;
+        }
+    }
 
-    @media screen and (min-width: 769px) {
-        width: 47em;
+    article {
+        display: flex;
+        flex-direction: column;
+        pointer-events: none;
+        transition: transform 1400ms calc(60ms * var(--index, 0)) cubic-bezier(0.19, 1, 0.22, 1);
+
+        @media screen and (min-width: 769px) {
+            width: 47em;
+        }
     }
 }
 
@@ -40,10 +45,10 @@
         padding-right: 10em;
         border-radius: 0 1.5em 0 0;
     }
-}
 
-.featured-post-link:hover {
-    opacity: 1;
+    &:hover {
+        opacity: 1;
+    }
 }
 
 .featured-post-tab {
@@ -53,34 +58,34 @@
         top: -2.8em;
         width: 24.3em;
     }
-}
 
-.featured-post-tab p {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    line-height: 1;
-    @media screen and (min-width: 769px) {
-        top: 1.5em;
-        left: 1.2em;
-        column-gap: 1.2em;
-    }
-}
+    p {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        line-height: 1;
+        @media screen and (min-width: 769px) {
+            top: 1.5em;
+            left: 1.2em;
+            column-gap: 1.2em;
+        }
 
-.featured-post-tab p .featured-post-tab-label-icon {
-    @media screen and (min-width: 769px) {
-        font-size: 1.3em;
-    }
-}
+        .featured-post-tab-label-icon {
+            @media screen and (min-width: 769px) {
+                font-size: 1.3em;
+            }
+        }
 
-.featured-post-tab p .featured-post-tab-label-text {
-    font-family: Noto Sans JP, sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: #212121;
-    transform: scaleY(0.6);
-    @media screen and (min-width: 769px) {
-        font-size: 1.5em;
+        .featured-post-tab-label-text {
+            font-family: Noto Sans JP, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #212121;
+            transform: scaleY(0.6);
+            @media screen and (min-width: 769px) {
+                font-size: 1.5em;
+            }
+        }
     }
 }
 
@@ -91,80 +96,85 @@
     @media screen and (min-width: 769px) {
         padding: 5.2em 4em 6em 0;
     }
-}
 
-.featured-post-body p {
-    position: relative;
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-}
+    p {
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
 
-.featured-post-body i {
-    position: absolute;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-    @media screen and (min-width: 769px) {
-        top: -3em;
-        width: 1.8em;
+        span {
+            display: -webkit-box;
+            font-feature-settings: normal;
+            line-height: 1.3;
+            writing-mode: vertical-rl;
+            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            max-height: 12em;
+            max-width: 4em;
+            color: #212121;
+            font-weight: 500;
+
+            @media screen and (min-width: 769px) {
+                font-size: 2.3em;
+            }
+        }
+    }
+
+    i {
+        position: absolute;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        @media screen and (min-width: 769px) {
+            top: -3em;
+            width: 1.8em;
+        }
+
+        img {
+            vertical-align: bottom;
+            pointer-events: none;
+            display: block;
+            width: 100%;
+            max-width: none;
+            height: auto;
+            transform: rotate(180deg);
+            aspect-ratio: auto 32 / 24;
+        }
+    }
+
+    figure {
+        flex: none;
+        background-color: white;
+        border: 1px solid #4C4F4D;
+        @media screen and (min-width: 769px) {
+            width: 253px;
+            padding: 12px;
+            border-radius: 12px;
+        }
+
+        img {
+            aspect-ratio: 1;
+            object-fit: cover;
+            transition: transform 1200ms cubic-bezier(0.19, 1, 0.22, 1);
+            display: block;
+            width: 100%;
+            max-width: none;
+            height: auto;
+        }
     }
 }
 
-.featured-post-body i img {
-    vertical-align: bottom;
-    pointer-events: none;
-    display: block;
-    width: 100%;
-    max-width: none;
-    height: auto;
-    transform: rotate(180deg);
-    aspect-ratio: auto 32 / 24;
-}
-
-.featured-post-body p span {
-    display: -webkit-box;
-    font-feature-settings: normal;
-    line-height: 1.3;
-    writing-mode: vertical-rl;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-    max-height: 12em;
-    max-width: 4em;
-    color: #212121;
-    font-weight: 500;
-
-    @media screen and (min-width: 769px) {
-        font-size: 2.3em;
-    }
-}
-
-.featured-post-body figure {
-    flex: none;
-    background-color: white;
-    border: 1px solid #4C4F4D;
-    @media screen and (min-width: 769px) {
-        width: 253px;
-        padding: 12px;
-        border-radius: 12px;
-    }
-}
-
-.featured-post-body figure img {
-    aspect-ratio: 1;
-    object-fit: cover;
-    transition: transform 1200ms cubic-bezier(0.19, 1, 0.22, 1);
-    display: block;
-    width: 100%;
-    max-width: none;
-    height: auto;
-}
-
-@media (max-width: 767px) {
-    .featured-posts {
-        margin-top: 24px;
-        margin-bottom: 0;
+/* postcss */
+@for $i from 0 to 9 {
+    .featured-post-body[data-index="$i"] {
+        background: radial-gradient(
+                circle farthest-corner at 0% 0%,
+                #E8E5DA 0%,
+                #E8E5DA 50%,
+                color-mix(in srgb, var(--color-$i) 30%, #E8E5DA 100%)
+        );
     }
 }
