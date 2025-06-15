@@ -1,17 +1,14 @@
 {{!< default}}
 
-{{#get "posts" include="authors,tags" filter="featured:false" limit=@config.posts_per_page}}
-  <div class="content-area">
-    <main class="site-main">
-
-      <div class="post-feed">
-        {{#foreach posts}}
-          {{> "loop"}}
-        {{/foreach}}
-      </div>
-
-      {{pagination}}
-
-    </main>
-  </div>
-{{/get}}
+{{#tag}}
+  <h2>{{name}}</h2>
+  <input type="hidden" id="current-tag-name" value="{{slug}}">
+  {{#get "posts" filter="tag:{{slug}}" include="tags" limit="all" as |posts|}}
+    {{#foreach posts}}
+      {{#foreach tags}}
+        <a href="{{url}}" class="tag-item" data-slug="{{slug}}">{{name}}</a>
+      {{/foreach}}
+    {{/foreach}}
+  {{/get}}
+{{/tag}}
+{{> "archives" }}

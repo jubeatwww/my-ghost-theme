@@ -1,11 +1,14 @@
 .slider-wrapper {
     width: 100%;
+    @media (min-width: 1024px) {
+        margin-top: 1.125rem;
+    }
 }
 
 .featured-posts {
     font-size: calc(100vw / 144);
     scroll-behavior: smooth;
-    background-color: #373C38;
+    background-color: var(--dark-gray-color);
 
     @media (max-width: 767px) {
         margin-top: 24px;
@@ -170,11 +173,6 @@
 /* postcss */
 @for $i from 0 to 9 {
     .featured-post-body[data-index="$i"] {
-        background: radial-gradient(
-                circle farthest-corner at 0% 0%,
-                #E8E5DA 0%,
-                #E8E5DA 50%,
-                color-mix(in srgb, var(--color-$i) 30%, #E8E5DA 100%)
-        );
+        background: color-mix(in srgb, var(--color-$i) 30%, #E8E5DA 100%);
     }
 }

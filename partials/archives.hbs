@@ -1,0 +1,72 @@
+<section class="archive">
+  {{#if withHeader }}
+    <div class="archive__tab">
+      <div class="archive__tab__bg">
+        <div class="archive__tab__bg__pc">{{> "icons/content-tab" }}</div>
+      </div>
+    </div>
+  <div class="archive__contents">
+    <div class="archive__contents__header">
+      <h2 class="archive__contents__header__heading">
+        What to &nbsp;<span class="archive__contents__header__heading--outline">read</span> &nbsp;today？
+      </h2>
+      <div class="archive__contents__header__category">
+        <ul class="archive__contents__header__category__list">
+          {{#get "tags"}}
+            {{#foreach tags}}
+              <li class="archive__contents__header__category__list__item">
+                <a href="{{url}}" title="{{name}}" class="archive__contents__header__category__list__item__link">
+                  <span>{{name}}</span>
+                </a>
+              </li>
+            {{/foreach}}
+          {{/get}}
+        </ul>
+      </div>
+    </div>
+  {{/if}}
+    <div class="archive__contents__list">
+      {{#foreach posts}}
+        <section class="archive__contents__list__item">
+          <a class="archive__contents__list__item__link" href="{{url}}" title="{{title}}">
+            <div class="archive__contents__list__item__link__thumbnail">
+              <img src="{{feature_image}}" alt="{{title}}" width="300" height="300" loading="lazy">
+            </div>
+            <div class="archive__contents__list__item__link__body">
+              <div class="archive__contents__list__item__link__body__topics">
+                <div class="archive__contents__list__item__link__body__topics__topic">
+                  <span>{{primary_tag.name}}</span>
+                </div>
+              </div>
+              <div class="archive__contents__list__item__link__body__title">
+                <h3>{{title}}</h3>
+              </div>
+            </div>
+          </a>
+          <div class="archive__contents__list__item__meta">
+            {{#has tag="count:>1"}}
+              <div class="archive__contents__list__item__meta__tags_container">
+                <div class="archive__contents__list__item__meta__tags_container__inner">
+                  <ul class="archive__contents__list__item__link__body__tags">
+                    {{#foreach tags}}
+                      {{#match name "!=" ../primary_tag.name}}
+                        <li class="archive__contents__list__item__link__body__tags__item">
+                          <a href="{{url}}" title="{{name}}">
+                            # <span>{{name}}</span>
+                          </a>
+                        </li>
+                      {{/match}}
+                    {{/foreach}}
+                  </ul>
+                </div>
+              </div>
+            {{/has}}
+            <div class="archive__contents__list__item__meta__info">
+              <time>{{date published_at format="YYYY/MM/DD"}}</time>
+            </div>
+          </div>
+        </section>
+      {{/foreach}}
+    </div>
+  </div>
+</section>

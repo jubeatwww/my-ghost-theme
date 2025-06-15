@@ -1,18 +1,14 @@
-* {
-    border: 0 solid #e5e7eb;
+.kg-width-wide,
+.kg-content-wide > div {
+    grid-column: wide;
 }
 
-html {
-    font-size: 16px;
+.kg-width-full {
+    grid-column: full;
 }
 
-body {
-    color: var(--primary-text-color);
-    font-family: Noto Sans JP, "sans-serif";
-    letter-spacing: .02em;
-    line-height: 150%;
-    min-height: 100svh;
-    padding-top: 153px;
+.kg-width-full img {
+    width: 100%;
 }
 
 .site {

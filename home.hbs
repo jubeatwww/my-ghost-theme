@@ -1,53 +1,5 @@
 {{!< default}}
 
 {{#get "posts" include="authors,tags" filter="featured:false" limit=@config.posts_per_page order="updated_at desc"}}
-  <section class="archive">
-    <div class="archive__tab">
-      <div class="archive__tab__bg">
-        <div class="archive__tab__bg__pc">{{> "icons/content-tab" }}</div>
-      </div>
-    </div>
-    <div class="archive__contents">
-      <div class="archive__contents__header">
-        <h2 class="archive__contents__header__heading">
-          What to &nbsp;<span class="archive__contents__header__heading--outline">learn</span> &nbsp;today？
-        </h2>
-        <div class="archive__contents__header__category">
-          <ul class="archive__contents__header__category__list">
-            {{#get "tags"}}
-              {{#foreach tags limit="all"}}
-                <li class="archive__contents__header__category__list__item">
-                  <a href="{{url}}" title="{{name}}" class="archive__contents__header__category__list__item__link">
-                    <span>{{name}}</span>
-                  </a>
-                </li>
-              {{/foreach}}
-            {{/get}}
-          </ul>
-        </div>
-      </div>
-      <div class="archive__contents__list">
-        {{#foreach posts}}
-          <section class="archive__contents__list__item">
-            <a class="archive__contents__list__item__link" href="{{url}}" title="{{title}}">
-              <div class="archive__contents__list__item__link__thumbnail">
-                <img src="{{feature_image}}" alt="{{title}}" width="300" height="300" loading="lazy">
-              </div>
-              <div class="archive__contents__list__item__link__body">
-                <p>{{date published_at format="YYYY.MM.DD"}}</p>
-                <h3>{{title}}</h3>
-                <ul class="archive__contents__list__item__link__body__tags">
-                  {{#foreach tags}}
-                    <li class="archive__contents__list__item__link__body__tags__item">
-                      <span>{{name}}</span>
-                    </li>
-                  {{/foreach}}
-                </ul>
-              </div>
-            </a>
-          </section>
-        {{/foreach}}
-      </div>
-    </div>
-  </section>
+  {{> "archives" withHeader=true}}
 {{/get}}

@@ -3,6 +3,7 @@ var html = $('html');
 $(function () {
     darkMode();
     carousel();
+    processRelatedTags();
 });
 
 function darkMode() {
@@ -18,8 +19,11 @@ function darkMode() {
 }
 
 function carousel() {
-    var splide = $('.splide');
-    new Splide(splide[0], {
+    const splide = document.querySelector('.splide');
+    if (!splide) {
+        return;
+    }
+    new Splide(splide, {
         type: 'loop',
         speed: 800,
         drag: 'free',
@@ -33,4 +37,24 @@ function carousel() {
             }
         }
     }).mount();
+}
+
+function processRelatedTags() {
+    const currentTag = document.querySelector('#current-tag-name');
+    if (!currentTag) {
+        return;
+    }
+
+    const relatedTags = document.querySelectorAll('.tag-item');
+    const tagSet = new Set();
+    relatedTags.forEach(tag => {
+        if (tag.dataset.slug === currentTag.value) {
+            tag.remove();
+        }
+        if (tagSet.has(tag.dataset.slug)) {
+            tag.remove();
+            return;
+        }
+        tagSet.add(tag.dataset.slug);
+    });
 }

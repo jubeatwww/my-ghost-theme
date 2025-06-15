@@ -1,11 +1,12 @@
-@import "@tryghost/shared-theme-assets/assets/css/v1/screen.css";
 @import "general/fonts.css";
 @import "general/vars.css";
+@import "site/reset.css";
+@import "site/global.css";
 @import "site/header.css";
 @import "site/switch.css";
 @import "site/layout.css";
 @import "site/term.css";
-@import "site/home.css";
+@import "site/archives.css";
 @import "blog/post.css";
 @import "blog/pagination.css";
 @import "blog/single.css";
@@ -13,5 +14,4 @@
 @import "blog/featured.css";
 @import "blog/related.css";
 @import "misc/utilities.css";
-@import "misc/dark.css";
 @import "misc/splide.min.css";
