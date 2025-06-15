@@ -6,6 +6,55 @@
     @media (min-width: 768px) {
         padding: .75rem 1.75rem .75rem 1.5rem;
     }
+
+    .gh-head-main {
+        display: flex;
+        gap: 1.25rem;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        @media (min-width: 1280px) {
+            gap: 2.75rem;
+        }
+        @media (min-width: 1024px) {
+            justify-content: flex-start;
+            gap: 2rem;
+        }
+    }
+
+    .gh-head-logo img {
+        max-width: 12rem;
+    }
+
+
+    &__widgets {
+        display: flex;
+        gap: .75rem;
+        align-items: center;
+        &__date {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            p {
+                line-height: 100%;
+                @media (min-width: 1024px) {
+                    font-family: "Barlow Condensed", "sans-serif";
+                    font-size: max(.75rem, 10px);
+                    font-weight: 600;
+                }
+
+                &:last-child {
+                    display: flex;
+                    align-items: center;
+                    gap: .125rem;
+                    @media (min-width: 1024px) {
+                        font-size: max(1.875rem, 13px);
+                    }
+                }
+            }
+        }
+    }
 }
 
 .gh-head-inner {
@@ -158,6 +207,35 @@ nav {
                         line-height: 150%;
                     }
                 }
+            }
+        }
+    }
+
+    .nav_buttons {
+        display: flex;
+        padding: 1rem 1.75rem;
+        border-left: 1px solid var(--border-color);
+        gap: 1.75rem;
+        align-items: center;
+        flex-shrink: 0;
+
+        &__button {
+            width: 5.69444vw;
+            a {
+                font-size: max(.8125rem, 13px);
+                padding: .625rem 0;
+                background-color: #333;
+                border: 1px solid #333;
+                border-radius: 5px;
+                color: #fff;
+                display: grid;
+                font-weight: 700;
+                line-height: 120%;
+                place-items: center;
+                text-decoration: none;
+                transition: background-color .3s, color .3s;
+                white-space: nowrap;
+                width: 100%;
             }
         }
     }

@@ -18,19 +18,32 @@
     <div class="container">
       <header id="gh-head" class="site-head gh-outer">
           <div class="gh-head-inner">
-              <div class="gh-head-brand">
-                  <div class="gh-head-brand-wrapper">
-                      <a class="gh-head-logo" href="{{@site.url}}">
-                          {{#if @site.logo}}
-                              <img src="{{@site.logo}}" alt="{{@site.title}}">
-                              {{#if @custom.white_logo_for_dark_mode}}
-                                  <img src="{{img_url @custom.white_logo_for_dark_mode}}" alt="{{@site.title}}">
-                              {{/if}}
-                          {{else}}
-                              {{@site.title}}
-                          {{/if}}
-                      </a>
+              <div class="gh-head-main">
+                <div class="gh-head-brand">
+                    <div class="gh-head-brand-wrapper">
+                        <a class="gh-head-logo" href="{{@site.url}}">
+                            {{#if @site.logo}}
+                                <img src="{{@site.logo}}" alt="{{@site.title}}">
+                                {{#if @custom.white_logo_for_dark_mode}}
+                                    <img src="{{img_url @custom.white_logo_for_dark_mode}}" alt="{{@site.title}}">
+                                {{/if}}
+                            {{else}}
+                                {{@site.title}}
+                            {{/if}}
+                        </a>
+                    </div>
+                </div>
+                <div class="site-head__widgets">
+                  <div class="site-head__widgets__date">
+                    <p>TODAY</p>
+                    <p>{{date format="YYYY MMM" locale="en"}}</p>
+                    <p>
+                      <span>{{date format="M"}}</span>
+                      <span>/</span>
+                      <span>{{date format="D"}}</span>
+                    </p>
                   </div>
+                </div>
               </div>
 
               <div class="gh-head-nav">
