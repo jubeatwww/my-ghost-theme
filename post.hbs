@@ -63,9 +63,15 @@
                   <p>{{content words="50" strip_html=true}}</p>
                 {{/if}}
               </div>
-              <div class="single_post__hero__toc">
-
-              </div>
+              <nav class="single_post__hero__toc--container">
+                <p>
+                  <span class="single_post__hero__toc__label">
+                    <span>I</span><span>ndex</span>
+                  </span>
+                  <span class="single_post__hero__toc__caption">目錄</span>
+                </p>
+                <div class="single_post__hero__toc"></div>
+              </nav>
             </div>
 
             <div class="gh-content gh-canvas single_post__content">
@@ -105,3 +111,19 @@
     </main>
   </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    tocbot.init({
+      tocSelector: '.single_post__hero__toc',
+      contentSelector: '.single_post__content',
+      headingSelector: 'h2, h3, h4',
+      hasInnerContainers: true,
+      scrollSmoothOffset: 50,
+      scrollSmoothDuration: 300,
+      listClass: 'single_post__hero__toc__list',
+      listItemClass: 'single_post__hero__toc__list__item',
+    });
+  });
+</script>
