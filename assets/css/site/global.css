@@ -13,7 +13,11 @@ body {
     letter-spacing: .02em;
     line-height: 150%;
     min-height: 100svh;
-    padding-top: 153px;
+    padding-top: var(--header-height);
+}
+
+[id] {
+    scroll-margin-top: var(--header-height);
 }
 
 img {
@@ -87,7 +91,6 @@ pre {
     hyphens: none;
     line-height: 1.5;
     white-space: pre;
-    background-color: var(--color-lighter-gray);
     -webkit-overflow-scrolling: touch;
 }
 
@@ -98,8 +101,6 @@ code {
 
 :not(pre) > code {
     padding: 0.4rem;
-    color: var(--ghost-accent-color);
-    background-color: var(--color-lighter-gray);
     border-radius: 3px;
 }
 

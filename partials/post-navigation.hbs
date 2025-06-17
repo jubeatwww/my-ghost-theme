@@ -1,0 +1,37 @@
+<nav class="single_post__footer__sibling_posts">
+  {{#prev_post in="primary_tag"}}
+    <a class="single_post__footer__sibling_posts__item single_post__footer__sibling_posts__item--prev" href="{{url}}">
+      <span class="single_post__footer__sibling_posts__item__icon">
+        <span class="single_post__footer__sibling_posts__item__icon__label">
+          前一篇
+        </span>
+        <svg class="size-6 md:size-8" viewBox="0 0 32 32">
+          <use xlink:href="#svg-icon-arrow-left"></use>
+        </svg>
+      </span>
+      <span class="single_post__footer__sibling_posts__item__body">
+        <span class="single_post__footer__sibling_posts__item__body__label">Previous Post</span>
+        <span class="single_post__footer__sibling_posts__item__body__title">{{title}}</span>
+      </span>
+    </a>
+  {{/prev_post}}
+  <div class="single_post__footer__sibling_posts__divider"></div>
+  {{#next_post in="primary_tag"}}
+    <a class="single_post__footer__sibling_posts__item single_post__footer__sibling_posts__item--next" href="{{url}}">
+      <span class="single_post__footer__sibling_posts__item__icon">
+        <span class="single_post__footer__sibling_posts__item__icon">
+        <span class="single_post__footer__sibling_posts__item__icon__label">
+          下一篇
+        </span>
+          <svg class="size-6 md:size-8" viewBox="0 0 32 32">
+          <use xlink:href="#svg-icon-arrow-right"></use>
+        </svg>
+      </span>
+      </span>
+      <span class="single_post__footer__sibling_posts__item__body">
+        <span class="single_post__footer__sibling_posts__item__body__label">Next Post</span>
+        <span class="single_post__footer__sibling_posts__item__body__title">{{title}}</span>
+      </span>
+    </a>
+  {{/next_post}}
+</nav>

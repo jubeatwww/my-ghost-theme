@@ -10,8 +10,11 @@
     --dark-gray-color: #cdcdcd;
     --black-color: #000;
     --border-color: #e5e7eb;
+    --tag-color: #666666;
     --tag-border-color: #333333;
     --hover-color: #eeeed1;
+
+    --header-height: 153px;
 
     --animation-base: ease-in-out;
     --shadow-base: 0 0 5px rgba(0, 0, 0, 0.2);
