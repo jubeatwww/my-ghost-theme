@@ -3,7 +3,6 @@ var html = $('html');
 $(function () {
     darkMode();
     carousel();
-    processRelatedTags();
 });
 
 function darkMode() {
@@ -37,24 +36,4 @@ function carousel() {
             }
         }
     }).mount();
-}
-
-function processRelatedTags() {
-    const currentTag = document.querySelector('#current-tag-name');
-    if (!currentTag) {
-        return;
-    }
-
-    const relatedTags = document.querySelectorAll('.tag-item');
-    const tagSet = new Set();
-    relatedTags.forEach(tag => {
-        if (tag.dataset.slug === currentTag.value) {
-            tag.remove();
-        }
-        if (tagSet.has(tag.dataset.slug)) {
-            tag.remove();
-            return;
-        }
-        tagSet.add(tag.dataset.slug);
-    });
 }
