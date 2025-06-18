@@ -1,21 +1,82 @@
-<div class="gh-outer">
 <nav class="pagination">
-
-    <div class="pagination-left">
-        {{#if prev}}
-            <a href="{{page_url prev}}">{{> "icons/arrow-left"}} Previous</a>
-        {{/if}}
-    </div>
-
+  <input type="hidden" class="pagination-current-page" value="{{page}}">
+  <input type="hidden" class="pagination-total-pages" value="{{pages}}">
+  <ul class="pagination__list">
+    <li class="pagination__list__item pagination__arrow pagination__arrow--left">
+      {{#if prev}}
+        <a href="{{page_url prev}}">
+          <svg viewBox="0 0 32 32">
+            <use xlink:href="#svg-icon-arrow-left"></use>
+          </svg>
+        </a>
+      {{/if}}
+    </li>
+    <li class="pagination__list__item pagination__list__item--current">
+      {{#match page "==" 1}}
+        <span>1</span>
+      {{else}}
+        <a href="{{page_url 1}}">1</a>
+      {{/match}}
+    </li>
+    {{#match page ">=" 4}}
+      <li class="pagination__list__item">
+        <span class="pagination-ellipsis">...</span>
+      </li>
+    {{/match}}
+    {{#if prev}}
+      {{#match prev ">" 1}}
+        <li class="pagination__list__item">
+          <a href="{{page_url prev}}">{{prev}}</a>
+        </li>
+      {{/match}}
+    {{/if}}
+    {{#match page "!=" 1}}
+      {{#match page "!=" pages}}
+        <li class="pagination__list__item pagination__list__item--current">
+          <span>{{page}}</span>
+        </li>
+      {{/match}}
+    {{/match}}
+    {{#if next}}
+      {{#match next "<" pages}}
+        <li class="pagination__list__item">
+          <a href="{{page_url next}}">{{next}}</a>
+        </li>
+      {{/match}}
+    {{/if}}
+    <li class="pagination__list__item pagination__list__item--ellipsis-next" style="display: none;">
+      <span class="pagination-ellipsis">...</span>
+    </li>
     {{#match pages "!=" 1}}
-        <span class="page-number hidden-xs hidden-sm">Page {{page}} of {{pages}}</span>
+      <li class="pagination__list__item pagination__list__item--current">
+        {{#match page "==" pages}}
+          <span>{{pages}}</span>
+        {{else}}
+          <a href="{{page_url pages}}">{{pages}}</a>
+        {{/match}}
+      </li>
     {{/match}}
 
-    <div class="pagination-right">
-        {{#if next}}
-            <a href="{{page_url next}}">Next {{> "icons/arrow-right"}}</a>
-        {{/if}}
-    </div>
-
+    <li class="pagination__list__item pagination__arrow pagination__arrow--right">
+      {{#if next}}
+        <a href="{{page_url next}}">
+          <svg viewBox="0 0 32 32">
+            <use xlink:href="#svg-icon-arrow-right"></use>
+          </svg>
+        </a>
+      {{/if}}
+    </li>
+  </ul>
 </nav>
-</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const currentPage = document.querySelector('.pagination-current-page');
+    const totalPages = document.querySelector('.pagination-total-pages');
+    console.log(currentPage.value, totalPages.value);
+    if (currentPage.value <= totalPages.value - 3) {
+      const ellipsisNext = document.querySelector('.pagination__list__item--ellipsis-next');
+      ellipsisNext.style.display = 'unset';
+    }
+  });
+</script>
