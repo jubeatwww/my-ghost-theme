@@ -38,16 +38,18 @@
 
             p {
                 line-height: 100%;
+                font-size: max(.6875rem, 10px);
+                font-weight: 600;
                 @media (min-width: 1024px) {
                     font-family: "Barlow Condensed", "sans-serif";
                     font-size: max(.75rem, 10px);
-                    font-weight: 600;
                 }
 
                 &:last-child {
                     display: flex;
                     align-items: center;
                     gap: .125rem;
+                    font-size: max(1.5rem, 13px);
                     @media (min-width: 1024px) {
                         font-size: max(1.875rem, 13px);
                     }
@@ -220,6 +222,10 @@
         align-items: center;
         flex-shrink: 0;
 
+        @media (max-width: 1024px) {
+            display: none;
+        }
+
         &__button {
             width: 5.69444vw;
             a {
@@ -253,4 +259,10 @@
 .gh-head-menu,
 .gh-head-actions {
     font-weight: 600;
+}
+
+.gh-head-nav {
+    @media (max-width: 1024px) {
+        display: none;
+    }
 }

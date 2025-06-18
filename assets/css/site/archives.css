@@ -4,6 +4,9 @@
 
     &__tab {
         position: absolute;
+        top: -1.66rem;;
+        left: -2px;
+        width: 22rem;
         @media screen and (min-width: 769px) {
             left: -2px;
             top: -1.78rem;
@@ -64,10 +67,16 @@
                 line-height: 1;
                 -ms-overflow-style: none;
                 scrollbar-width: none;
+                @media screen and (max-width: 768px) {
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                }
 
                 &__list {
                     display: inline-flex;
                     list-style: none;
+                    padding: 0 2em 1em;
+                    column-gap: 1em;
 
                     @media screen and (min-width: 769px) {
                         column-gap: 1em;
@@ -80,6 +89,8 @@
                             line-height: 0;
                             border: 1px solid var(--tag-border-color);
                             border-radius: 999px;
+                            padding: 1rem;
+                            font-size: 1rem;
 
                             display: flex;
                             align-items: center;
@@ -115,10 +126,14 @@
 
         &__list {
             border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            overflow: hidden;
             @media screen and (min-width: 769px) {
-                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+            }
+            @media screen and (min-width: 1024px) {
                 grid-template-columns: repeat(4, 1fr);
-                overflow: hidden;
             }
 
             &__item {
@@ -128,6 +143,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: .5rem;
+                padding: .825rem .95rem;
                 &:hover {
                     background-color: var(--hover-color);
                     .archive__contents__list__item__link__thumbnail img {
@@ -177,6 +193,7 @@
                         flex: none;
                         overflow: hidden;
                         border: 1px solid var(--border-color);
+                        border-radius: 10px;
 
                         @media screen and (min-width: 769px) {
                             border-radius: 1.6em;
