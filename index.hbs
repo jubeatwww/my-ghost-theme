@@ -1,67 +1,7 @@
 {{!< default}}
 <div style="margin-bottom: 1.25rem;"></div>
-{{#tag}}
-  <div class="tags_wrapper">
-    <div class="tag_header">
-      <h1>
-        <svg class="nav-icon-svg">
-          <use xlink:href='{{asset "images/menu-icons.svg"}}#icon-{{slug}}'></use>
-        </svg>
-        {{name}}
-      </h1>
-    </div>
 
-    <div class="tags_container">
-      <input type="hidden" id="current-tag-name" value="{{slug}}">
-      <h2>相關關鍵字</h2>
-      <div class="tags_list--container">
-        <ul class="tags_list">
-          {{#get "posts" filter="tag:{{slug}}" include="tags" limit="all" as |posts|}}
-            {{#foreach posts}}
-              {{#foreach tags}}
-                {{#match name "!=" ../primary_tag.name}}
-                  <li class="tag-item" data-slug="{{slug}}">
-                    <a href="{{url}}"># {{name}}</a>
-                  </li>
-                {{/match}}
-              {{/foreach}}
-            {{/foreach}}
-          {{/get}}
-        </ul>
-      </div>
-    </div>
-  </div>
-{{/tag}}
+{{> "tag-header" }}
 
 {{> "archives" }}
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const currentTag = document.querySelector('#current-tag-name');
-    if (!currentTag) {
-      return;
-    }
-
-    const relatedTags = document.querySelectorAll('.tag-item');
-    const tagSet = new Set();
-    let delay = 200;
-    relatedTags.forEach(tag => {
-      if (tag.dataset.slug === currentTag.value || tagSet.has(tag.dataset.slug)) {
-        tag.remove();
-        return;
-      }
-      tagSet.add(tag.dataset.slug);
-    });
-
-    const newTagsList = document.querySelectorAll('.tag-item');
-    if (newTagsList.length) {
-      const heading = document.querySelector('.tags_container h2')
-      heading?.classList.add('show');
-      newTagsList.forEach(tag => {
-        tag.style.transitionDelay = `${delay}ms`;
-        delay += 150;
-        tag.classList.add('show');
-      });
-    }
-  });
-</script>

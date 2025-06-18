@@ -1,0 +1,19 @@
+<footer class="site_footer">
+  <div class="site_footer__container">
+    <p class="site_footer__logo">
+      <a href="{{@site.url}}">
+        {{#if @site.logo}}
+          <img src="{{@site.logo}}" alt="{{@site.title}}">
+          {{#if @custom.white_logo_for_dark_mode}}
+            <img src="{{img_url @custom.white_logo_for_dark_mode}}" alt="{{@site.title}}">
+          {{/if}}
+        {{else}}
+          {{@site.title}}
+        {{/if}}
+      </a>
+    </p>
+    <p class="site_footer__copyright">
+      <small>{{@site.title}} © {{date format="YYYY"}} / <a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></small>
+    </p>
+  </div>
+</footer>

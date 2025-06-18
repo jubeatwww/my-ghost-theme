@@ -200,6 +200,7 @@
                     text-align: center;
                     text-wrap: balance;
                     font-weight: 500;
+                    font-size: max(.75rem, 10px);
 
                     @media (min-width: 1024px) {
                         font-size: max(.6875rem, 10px);
@@ -236,6 +237,10 @@
                 transition: background-color .3s, color .3s;
                 white-space: nowrap;
                 width: 100%;
+                &:hover {
+                    background-color: initial;
+                    color: var(--tag-border-color);
+                }
             }
         }
     }

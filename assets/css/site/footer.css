@@ -1,0 +1,56 @@
+.site_footer {
+    background-color: #333333;
+    color: white;
+    &__container {
+        padding: 2.75rem .875rem 88px;
+        @media (min-width: 1280px) {
+            padding-left: 15rem;
+            padding-right: 15rem;
+        }
+        @media (min-width: 1024px) {
+            padding-bottom: 1.875rem;
+            padding-left: 11rem;
+            padding-right: 11rem;
+        }
+        @media (min-width: 768px) {
+            padding: 3.75rem 5rem 5rem;
+        }
+    }
+
+    &__logo {
+        width: 92px;
+        margin-top: 25px;
+        margin-right: auto;
+        margin-left: auto;
+        @media screen and (min-width: 769px) {
+            width: 116px;
+            margin-top: 30px;
+        }
+
+        a {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            outline: none;
+            cursor: pointer;
+        }
+    }
+
+    &__copyright {
+        border-top: 1px dashed var(--tag-color);
+        margin-top: 1.5rem;
+        text-align: center;
+        @media screen and (min-width: 769px) {
+            padding-top: 1.375rem;
+        }
+
+        small {
+            display: block;
+            font-weight: 500;
+            line-height: 150%;
+            font-size: max(.6875rem, 10px);
+            color: white;
+            @media screen and (min-width: 769px) {
+                font-size: 11px;
+            }
+        }
+    }
+}
