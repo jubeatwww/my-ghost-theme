@@ -1,10 +1,10 @@
 {{!< default}}
 
 {{#post}}
-<div class="content-area">
-  <div class="post-container">
-    <main class="post-container__main">
-      <div class="post-container__main__inner">
+  <div class="content-area">
+    <div class="post-container">
+      <main class="post-container__main">
+        <div class="post-container__main__inner">
           <article class="{{post_class}}{{#unless feature_image}} no-image{{/unless}} single-post">
 
             <header class="single_post__header">
@@ -77,9 +77,11 @@
             </div>
 
             {{#if @custom.show_author}}
-              <div class="author_wrapper">
-                {{> "author-box"}}
-              </div>
+              {{#primary_author}}
+                <div class="author_wrapper">
+                  {{> "author-box"}}
+                </div>
+              {{/primary_author}}
             {{/if}}
 
           </article>
@@ -99,13 +101,13 @@
               {{comments title="" count=false}}
             </section>
           {{/if}}
-      </div>
-    </main>
-    {{#if @custom.show_related_posts}}
-      {{> "related"}}
-    {{/if}}
+        </div>
+      </main>
+      {{#if @custom.show_related_posts}}
+        {{> "related"}}
+      {{/if}}
+    </div>
   </div>
-</div>
 {{/post}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script>

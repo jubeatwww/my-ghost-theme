@@ -1,25 +1,27 @@
-{{#primary_author}}
-  <div class="author">
+<div class="author">
+  {{^is "author"}}
     <div class="author__header">
       <h2>作者簡介</h2>
       <div></div>
     </div>
-    <div class="author__content">
-      <div class="author__content__avatar">
-        <div class="author__content__avatar__container">
-          {{#if profile_image}}
-            <img src="{{img_url profile_image size="xs"}}" alt="{{name}}" loading="lazy">
-          {{else}}
-            <div>{{> "icons/avatar"}}</div>
-          {{/if}}
-        </div>
+  {{/is}}
+  <div class="author__content">
+    <div class="author__content__avatar">
+      <div class="author__content__avatar__container">
+        {{#if profile_image}}
+          <img src="{{img_url profile_image size="xs"}}" alt="{{name}}" loading="lazy">
+        {{else}}
+          <div>{{> "icons/avatar"}}</div>
+        {{/if}}
       </div>
-      <div class="author__content__info">
-        <h2><span>{{name}}</span></h2>
-        <p>{{bio}}</p>
-        <div class="author__content__info__meta">
-          <ul></ul>
-          <div class="author__content__info__meta__page">
+    </div>
+    <div class="author__content__info">
+      <h2><span>{{name}}</span></h2>
+      <p>{{bio}}</p>
+      <div class="author__content__info__meta">
+        <ul></ul>
+        <div class="author__content__info__meta__page">
+          {{^is "author"}}
             <a href="{{url}}" title="查看 {{name}} 的所有文章" class="author__content__info__meta__page__link">
             <span class="author__content__info__meta__page__link__text--outer">
               <span class="author__content__info__meta__page__link__text--inner">
@@ -37,9 +39,9 @@
               </span>
             </span>
             </a>
-          </div>
+          {{/is}}
         </div>
       </div>
     </div>
   </div>
-{{/primary_author}}
+</div>

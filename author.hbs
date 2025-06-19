@@ -1,29 +1,11 @@
 {{!< default}}
 
-<div class="content-area">
-<main class="site-main">
+<div style="margin-bottom: 1.25rem;"></div>
 
-    {{#author}}
-        <section class="term gh-outer">
-            {{#if profile_image}}
-                <div class="term-image-container u-placeholder">
-                    <img class="author-image u-object-fit" src="{{img_url profile_image size="xs"}}" alt="{{name}}" loading="lazy">
-                </div>
-            {{/if}}
-            <div class="term-wrapper">
-                <h1 class="term-name">{{name}}</h1>
-                <div class="term-description">{{bio}}</div>
-            </div>
-        </section>
-    {{/author}}
+{{#author}}
+  <div class="author-page-wrapper">
+    {{> "author-box"}}
+  </div>
+{{/author}}
 
-    <div class="post-feed">
-        {{#foreach posts}}
-            {{> "loop"}}
-        {{/foreach}}
-    </div>
-
-    {{pagination}}
-
-</main>
-</div>
+{{> "archives" }}
