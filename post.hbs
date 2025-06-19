@@ -1,12 +1,10 @@
 {{!< default}}
 
+{{#post}}
 <div class="content-area">
   <div class="post-container">
     <main class="post-container__main">
       <div class="post-container__main__inner">
-
-        {{#post}}
-
           <article class="{{post_class}}{{#unless feature_image}} no-image{{/unless}} single-post">
 
             <header class="single_post__header">
@@ -101,16 +99,14 @@
               {{comments title="" count=false}}
             </section>
           {{/if}}
-
-          {{#if @custom.show_related_posts}}
-            {{> "related"}}
-          {{/if}}
-
-        {{/post}}
       </div>
     </main>
+    {{#if @custom.show_related_posts}}
+      {{> "related"}}
+    {{/if}}
   </div>
 </div>
+{{/post}}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.32.2/tocbot.min.js"></script>
 <script>

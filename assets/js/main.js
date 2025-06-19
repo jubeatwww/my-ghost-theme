@@ -18,7 +18,7 @@ function darkMode() {
 }
 
 function carousel() {
-    const splide = document.querySelector('.splide');
+    const splide = document.querySelector('.featured-posts');
     if (!splide) {
         return;
     }

@@ -1,34 +1,114 @@
-{{#get "posts" limit="3" filter="tag:{{primary_tag.slug}}+id:-{{id}}" include="tags" as |related|}}{{#if related}}
-<section class="related-posts gh-canvas">
-
-    <h3 class="related-title">You might also like...</h3>
-
-    <div class="related-feed">
-    {{#foreach related}}
-
-        <article class="{{post_class}}{{#unless feature_image}} no-image{{/unless}}">
-
-            {{#if feature_image}}
-            <figure class="post-media">
-                <div class="u-placeholder rectangle">
-                    <a class="post-image-link" href="{{url}}">
-                        <img class="post-image u-object-fit" src="{{img_url feature_image size="m"}}" alt="{{title}}" loading="lazy">
-                    </a>
-                </div>
-            </figure>
-            {{/if}}
-
-            <header class="post-header">
-                <h2 class="post-title">
-                    <a class="post-title-link" href="{{url}}">{{title}}</a>
-                </h2>
-                <time class="post-meta" datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="DD MMM YYYY"}}</time>
-            </header>
-
-        </article>
-
-    {{/foreach}}
+{{#get "posts" limit="10" filter="tag:{{primary_tag.slug}}+id:-{{id}}" include="tags,authors" as |related|}}{{#if related}}
+  <div class="post_content_below">
+    <div class="related_posts_wrapper">
+      <div class="related_posts">
+        <div class="related_posts__carousel">
+          <div class="splide related_posts__carousel__inner" role="group">
+            <div class="related_posts__carousel__header">
+              <h2 class="related_posts__carousel__title">相關文章</h2>
+              <div class="splide__arrows splide__arrows--ltr related_posts__carousel__arrows">
+                <button class="splide__arrow splide__arrow--prev"
+                        aria-label="Previous slide"
+                        >
+                  <svg width="22" height="11" viewBox="0 0 22 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.04444 11L0 5.49906L9.04444 0V4.30321H22V6.69492H9.04444V11Z"></path>
+                  </svg>
+                </button>
+                <button class="splide__arrow splide__arrow--next"
+                        aria-label="Next slide"
+                        >
+                  <svg width="22" height="11" viewBox="0 0 22 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.04444 11L0 5.49906L9.04444 0V4.30321H22V6.69492H9.04444V11Z"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="related_posts__carousel__slider">
+              <div class="splide__track">
+                <ol class="splide__list">
+                  {{#foreach related}}
+                    <li class="splide__slide">
+                      <div class="related_post">
+                        <a class="related_post__link" href="{{url}}">
+                          <div class="related_post__image">
+                            <div class="related_post__image__inner">
+                              {{#if feature_image}}
+                                <img src="{{img_url feature_image size="m"}}" alt="{{title}}" loading="lazy" width="700"
+                                     height="700">
+                              {{/if}}
+                            </div>
+                          </div>
+                          <div class="related_post__content">
+                            <div class="related_post__content__topic">
+                              <div class="related_post__content__topic__inner">
+                                {{#primary_tag}}
+                                  <span>{{name}}</span>
+                                {{/primary_tag}}
+                              </div>
+                            </div>
+                            <div class="related_post__content__title">
+                              <h3>{{title}}</h3>
+                            </div>
+                          </div>
+                        </a>
+                        <div class="related_post__meta">
+                          {{#has tag="count:>1"}}
+                            <div class="related_post__meta__tags">
+                              <div class="related_post__meta__tags__inner">
+                                <ul>
+                                  {{#foreach tags}}
+                                    {{#match name "!=" ../primary_tag.name}}
+                                    <li>
+                                      <a href="{{url}}" class="related_post__meta__tag"># <span>{{name}}</span></a>
+                                    </li>
+                                    {{/match}}
+                                  {{/foreach}}
+                                </ul>
+                              </div>
+                            </div>
+                          {{else}}
+                            <div class="related_post__meta__empty_tags"></div>
+                          {{/has}}
+                          <div class="related_post__meta__info">
+                            {{#primary_author}}
+                              <div class="related_post__meta__info__author">
+                                <a href="{{url}}" class="related_post__meta__info__author__link">
+                                  <div class="related_post__meta__info__author__avatar">
+                                    {{#if profile_image}}
+                                      <img src="{{img_url profile_image size="xs"}}" alt="{{name}}" loading="lazy" width="32" height="32">
+                                    {{else}}
+                                      <div>{{> "icons/avatar"}}</div>
+                                    {{/if}}
+                                  </div>
+                                  <p>{{name}}</p>
+                                </a>
+                              </div>
+                            {{/primary_author}}
+                            <time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="YYYY/MM/DD"}}</time>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  {{/foreach}}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-</section>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const related = document.querySelector('.related_posts__carousel__inner');
+      if (!related) {
+        return;
+      }
+      new Splide(related, {
+        type: 'slide',
+        autoWidth: true,
+        pagination: false,
+      }).mount();
+    });
+  </script>
 {{/if}}{{/get}}

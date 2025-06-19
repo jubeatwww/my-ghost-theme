@@ -73,7 +73,6 @@
   document.addEventListener('DOMContentLoaded', function () {
     const currentPage = document.querySelector('.pagination-current-page');
     const totalPages = document.querySelector('.pagination-total-pages');
-    console.log(currentPage.value, totalPages.value);
     if (currentPage.value <= totalPages.value - 3) {
       const ellipsisNext = document.querySelector('.pagination__list__item--ellipsis-next');
       ellipsisNext.style.display = 'unset';
